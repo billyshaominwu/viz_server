@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from . import views
 
 urlpatterns = [
     path('mysite/', include('mysite.crimesapp.urls')),
     path('admin/', admin.site.urls),
+    path('crimes/<str:longitude>/<str:latitude>/<str:radius>', views.getAllCrimesWithinR)
 ]
