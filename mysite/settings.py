@@ -25,12 +25,14 @@ SECRET_KEY = '811$89u40l0dnf#((*rq^yspp#9=i5-sm0%m2!jppa)2-+=hui'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'mysite.crimesapp.apps.CrimesappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,11 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

@@ -20,5 +20,6 @@ from . import views
 urlpatterns = [
     path('mysite/', include('mysite.crimesapp.urls')),
     path('admin/', admin.site.urls),
-    path('crimes/<str:longitude>/<str:latitude>/<str:radius>', views.getAllCrimesWithinR)
+    path('crimes/<str:longitude>/<str:latitude>/<str:radius>', views.get_crime_frequency_in_circle),
+    path('crimes/year/<str:longitude>/<str:latitude>/<str:radius>', views.get_crime_frequency_by_year)
 ]
